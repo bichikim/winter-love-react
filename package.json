@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "peerDependencies": {
-    "prop-types": "^15",
-    "react": "^16",
-    "react-dom": "^16"
-  },
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
@@ -43,6 +38,9 @@
     "webpack-dev-server": "^3"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "prop-types": "^15",
+    "react": "^16",
+    "react-dom": "^16"
   }
 }
