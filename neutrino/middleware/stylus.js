@@ -26,6 +26,11 @@ module.exports = () => (neutrino) => {
       .end()
   }
 
+  /**
+   * css scope able
+   * @param config config.module.rule('...').use() ->
+   * @returns {*}
+   */
   const scopedCssLoader = (config) => {
     return config
       .use('scoped-css')
@@ -37,6 +42,13 @@ module.exports = () => (neutrino) => {
   postLoader(modules)
   stylusLoader(modules)
 
+
+  const normal = style.oneOf('normal').test(/\.(css|styl(us)?)$/)
+  scopedCssLoader(normal)
+  postLoader(normal)
+  stylusLoader(normal)
+
+  // for scoped css
   neutrino.config.module
     .rule('compile')
     .use('babel')
@@ -52,10 +64,4 @@ module.exports = () => (neutrino) => {
         },
       )
     })
-
-  const normal = style.oneOf('normal').test(/\.(css|styl(us)?)$/)
-  scopedCssLoader(normal)
-  postLoader(normal)
-  stylusLoader(normal)
-
 }

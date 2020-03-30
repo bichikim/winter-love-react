@@ -108,17 +108,13 @@
     ************************/
     /* it will use that information to detect the least costly way to type-check and emit changes to your project. */
     "incremental": false,
-    "noEmitOnError": false
-
+    "isolatedModules": true,
+    "noEmitOnError": false,
+    "noEmit": true
     // build environment
   },
   "include": [
-    "build/**/*.js",
-    "src/**/*.ts",
-    "test/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "node_modules/vue-tsx-support/enable-check.d.ts"
+    "src-client"
   ],
   "exclude": [
   ]

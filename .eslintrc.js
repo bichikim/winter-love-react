@@ -1,5 +1,5 @@
 module.exports = {
-  plugins: ['@typescript-eslint', 'import', 'sort-class-members', 'pug'],
+  plugins: ['@typescript-eslint', 'import', 'sort-class-members', 'react-pug'],
   env: {
     'commonjs': true,
     'browser': true,
@@ -16,6 +16,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:react-pug/all',
     'eslint:recommended',
     'plugin:import/warnings',
   ],
