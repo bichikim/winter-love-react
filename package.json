@@ -1,0 +1,47 @@
+{
+  "name": "winter-love-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "peerDependencies": {
+    "prop-types": "^15",
+    "react": "^16",
+    "react-dom": "^16"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production",
+    "test": "karma start --single-run",
+    "lint": "eslint --cache --format codeframe --ext mjs,jsx,js src-client test"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.9.0",
+    "@neutrinojs/eslint": "^9.1.0",
+    "@neutrinojs/karma": "^9.1.0",
+    "@neutrinojs/react-components": "^9.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
+    "babel-merge": "^3.0.0",
+    "eslint": "^6",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-pug": "^1.2.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-sort-class-members": "^1.5.0",
+    "fork-ts-checker-webpack-plugin": "^4.1.2",
+    "karma": "^4",
+    "karma-cli": "^2",
+    "mocha": "^7",
+    "neutrino": "^9.1.0",
+    "prop-types": "^15",
+    "react": "^16",
+    "react-dom": "^16",
+    "typescript": "^3.8.3",
+    "webpack": "^4",
+    "webpack-cli": "^3",
+    "webpack-dev-server": "^3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
