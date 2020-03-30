@@ -14,7 +14,14 @@ module.exports.typescript = (/* options */) => (neutrino) => {
       return babelMerge(
         options,
         {
-          presets: [require.resolve('@babel/preset-typescript')],
+          presets: [[
+            require.resolve('@babel/preset-typescript'), {
+              // When set to true, the transform will only remove type-only imports
+              // (introduced in TypeScript 3.8). This should only be used
+              // if you are using TypeScript >= 3.8.
+              // fix remove import React
+              onlyRemoveTypeImports: true,
+            }]],
         },
       )
     })

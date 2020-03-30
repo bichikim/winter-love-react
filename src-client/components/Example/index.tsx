@@ -8,16 +8,9 @@ export default function Example() {
   const [count, setCount] = useState(0)
   const message = `You clicked ${count} times`
 
-  // return (
-  //   <div>
-  //     <p className="message">{message}</p>
-  //     <button type="button" onClick={() => setCount(count + 1)}>
-  //       Click me
-  //     </button>
-  //   </div>
-  // )
-
   return pug`
-    div hello
+    div
+      p.message #{message}
+      button(type="button" onClick=() => setCount(count + 1)) Click me
   `
 }

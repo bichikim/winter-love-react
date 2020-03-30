@@ -18,13 +18,13 @@ module.exports = {
       useEslintrc: true,
     }),
     reactComponents(),
-    pug(),
+
     // alias
     alias(),
     // stylus
     stylus(),
     typescript(),
-
+    pug(),
     forkTsChecker({
       enable: process.env.NODE_ENV === 'development',
     }),

@@ -3,7 +3,6 @@ const babelMerge = require('babel-merge')
 module.exports = () => (neutrino) => {
   neutrino.config.module
     .rule('compile')
-    .test(/\.(mjs|jsx|js|tsx|ts)$/)
     .use('babel')
     .tap((options) => {
       return babelMerge(
