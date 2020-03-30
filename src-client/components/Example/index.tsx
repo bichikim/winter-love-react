@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import './index.scoped.styl'
+
 
 // From https://reactjs.org/docs/hooks-state.html
 export default function Example() {
@@ -8,7 +10,7 @@ export default function Example() {
 
   return (
     <div>
-      <p>{message}</p>
+      <p className="message">{message}</p>
       <button type="button" onClick={() => setCount(count + 1)}>
         Click me
       </button>
