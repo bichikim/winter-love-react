@@ -49,6 +49,7 @@
     "pug": "^2.0.4",
     "react": "^16",
     "react-dom": "^16",
+    "stylint": "^2.0.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "tailwindcss": "^1.2.0",
