@@ -4,16 +4,16 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 const Index = lazy(() => import('pages/index'))
 const Foo = lazy(() => import('pages/foo'))
+const Fallback = () => (<div>loading...</div>)
 
 render(
-  <Router>
-    <Suspense fallback={<div>loading...</div>}>
-      <Switch>
-        <Route path="/" component={Index} />
-        <Route path="/foo" component={Foo} />
-      </Switch>
-    </Suspense>
-  </Router>
+  pug`
+    Router
+      Suspense(fallback=Fallback)
+        Switch
+          Route(path="/" component=Index)
+          Route(path="/foo" component=Foo)
+  `
   ,
   document.getElementById('root')
 )
