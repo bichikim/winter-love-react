@@ -2,7 +2,7 @@ import React, {Suspense, lazy} from 'react'
 import {render} from 'react-dom'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-const Index = lazy(() => import('pages/index'))
+const Index = lazy(() => import(/* webpackMode: "eager" */ 'pages/index'))
 const Foo = lazy(() => import('pages/foo'))
 const Fallback = pug`div loading...`
 
