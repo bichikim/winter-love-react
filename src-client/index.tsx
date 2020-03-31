@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 const Index = lazy(() => import('pages/index'))
 const Foo = lazy(() => import('pages/foo'))
-const Fallback = () => (<div>loading...</div>)
+const Fallback = (<div>loading...</div>)
 
 render(
   pug`
