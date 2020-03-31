@@ -107,10 +107,7 @@
      * ?
     ************************/
     /* it will use that information to detect the least costly way to type-check and emit changes to your project. */
-    "incremental": false,
-    "isolatedModules": true,
-    "noEmitOnError": false,
-    "noEmit": true
+    "incremental": false
     // build environment
   },
   "include": [

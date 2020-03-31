@@ -28,6 +28,24 @@ module.exports = {
     forkTsChecker({
       enable: process.env.NODE_ENV === 'development',
     }),
-    karma(),
+    karma({
+      frameworks: ['mocha', 'chai'],
+      files: [
+        {
+          pattern: 'test/**/*.spec.ts',
+          watched: false,
+          included: true,
+          served: true,
+        }
+      ],
+      preprocessors: {
+        'test/**/*.spec.ts': ['webpack'],
+        'src/**/*.(ts|tsx|js|jsx|mjs)': ['webpack'],
+      }
+      ,
+      plugins: [
+        require.resolve('karma-chai'),
+      ],
+    }),
   ],
 }
