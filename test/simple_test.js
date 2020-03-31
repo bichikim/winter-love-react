@@ -1,7 +1,7 @@
-import assert from 'assert';
+import assert from 'assert'
 
 describe('simple', () => {
   it('should be sane', () => {
-    assert.equal(true, !false);
-  });
-});
+    assert.equal(true, !false)
+  })
+})

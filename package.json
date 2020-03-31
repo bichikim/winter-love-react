@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
     "test": "karma start --single-run",
-    "lint": "eslint --cache --format codeframe --ext mjs,jsx,js src-client test",
+    "lint": "eslint --cache --format codeframe --ext mjs,jsx,js,ts,tsx \"src-client\" test",
     "neutrino:inspect": "neutrino --inspect --mode production"
   },
   "devDependencies": {
