@@ -12,7 +12,7 @@
 - [x] hooks
 - [x] karma mocha chai unit test
 - [x] eslint + typescript
-- [x] router (WIP)
+- [x] router
 - [ ] .env
 - [ ] icon auto font
 - [ ] app icon auto Generater
