@@ -8,6 +8,7 @@
     "build": "webpack --mode production",
     "test": "karma start --single-run",
     "lint": "eslint --cache --format codeframe --ext mjs,jsx,js,ts,tsx \"src-client\" test",
+    "storybook": "start-storybook",
     "neutrino:inspect": "neutrino --inspect --mode production"
   },
   "devDependencies": {
@@ -17,6 +18,10 @@
     "@neutrinojs/karma": "^9.1.0",
     "@neutrinojs/react-components": "^9.1.0",
     "@neutrinojs/style-loader": "^9.1.0",
+    "@storybook/addon-actions": "^5.0.10",
+    "@storybook/addon-links": "^5.0.10",
+    "@storybook/addons": "^5.0.10",
+    "@storybook/react": "^5.3.18",
     "@types/chai": "^4.1.7",
     "@types/mocha": "^7.0.1",
     "@types/pug": "^2.0.4",
@@ -56,9 +61,11 @@
     "typescript": "^3.8.3",
     "webpack": "^4",
     "webpack-cli": "^3",
-    "webpack-dev-server": "^3"
+    "webpack-dev-server": "^3",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "immer": "^6.0.3",
     "lodash": "^4.17.15",
     "prop-types": "^15",
     "react": "^16",

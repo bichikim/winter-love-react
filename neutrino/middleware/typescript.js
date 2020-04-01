@@ -1,14 +1,18 @@
 const babelMerge = require('babel-merge')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const {margeArray} = require('../utils')
 
 module.exports.typescript = (/* options */) => (neutrino) => {
   neutrino.config.resolve.extensions
     .add('.tsx')
     .add('.ts')
 
+  const compileTest = neutrino.config.module.rule('compile').get('test')
+  const newCompileTest = /\.(ts|tsx)$/
+
   neutrino.config.module
     .rule('compile')
-    .test(/\.(mjs|jsx|js|tsx|ts)$/)
+    .test(margeArray(compileTest, newCompileTest))
     .use('babel')
     .tap((options) => {
       return babelMerge(
