@@ -15,7 +15,7 @@
 - [x] router
 - [x] .env
 - [ ] icon auto font
-- [ ] app icon auto Generater
+- [ ] app icon auto Generator
 - [x] story book
 - [ ] e2e cypress test
 - [ ] serverless 뭘 쓸지는 미정 아마 ? firebase functions + prisma ?
