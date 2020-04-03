@@ -13,7 +13,7 @@
 - [x] karma mocha chai unit test
 - [x] eslint + typescript
 - [x] router
-- [ ] .env
+- [x] .env
 - [ ] icon auto font
 - [ ] app icon auto Generater
 - [x] story book
@@ -21,6 +21,7 @@
 - [ ] serverless 뭘 쓸지는 미정 아마 ? firebase functions + prisma ?
 - [ ] prisma 
 - [ ] server graphql
-- [ ] client graphql
+- [ ] client graphql (hook)
 - [ ] pwa
 - [ ] ci/cd
+- [x] axios hook

@@ -37,6 +37,7 @@
     "babel-plugin-transform-react-pug": "^7.0.1",
     "chai": "^4.2.0",
     "craco-plugin-scoped-css": "^1.0.0",
+    "dotenv-webpack": "^1.7.0",
     "eslint": "^6",
     "eslint-loader": "^3",
     "eslint-plugin-import": "^2",

@@ -10,6 +10,8 @@ declare namespace NodeJS {
 
     // project version
     VERSION: string
+
+    BASE_URL: string
   }
 }
 

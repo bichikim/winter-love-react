@@ -5,6 +5,7 @@ export const index: React.FC = () => {
   return pug`
     div index page
       Example
+      div BASE_URL #{process.env.BASE_URL}
   `
 }
 

@@ -1,10 +1,5 @@
 import {useState} from 'react'
-import Axios, {AxiosResponse} from 'axios'
-
-const axios = Axios.create({
-  // todo add env.BASE_URL
-  // path: process.env.BASE_URL
-})
+import Axios, {AxiosResponse, AxiosRequestConfig} from 'axios'
 
 export type PathFunction<P extends PathParams | undefined = PathParams> = (payload?: P) => string
 export type Path<P extends PathParams | undefined = PathParams> = PathFunction<P> | string
@@ -12,15 +7,18 @@ export type Params = Record<string, any>
 export type Data = Record<string, any>
 export type PathParams = Record<string, any>
 export type Headers = Record<string, any>
-export interface Payload {
+export interface Config extends Omit<AxiosRequestConfig, 'url'> {
+  url?: Path<Payload['pathParams']>
   data?: Data
   params?: Params
   pathParams?: PathParams
   headers?: Headers
 }
 
+export type Payload = Omit<Config, 'url'>
+
 export const getPath = <P extends PathParams | undefined = PathParams>(
-  path: Path<P>,
+  path: Path<P> = '',
   payload?: P,
   ): string => {
   if(typeof path === 'function') {
@@ -29,17 +27,29 @@ export const getPath = <P extends PathParams | undefined = PathParams>(
   return path
 }
 
+
 export const useRequest = <
-  P extends Payload = Payload,
+  P extends Payload = Config,
   R extends Record<string | symbol, any> = Record<string | symbol, any>
-  >(path: Path<P['pathParams']>) => {
+  >(config: Config = {}) => {
   const [result, setResult] = useState<null | R>(() => null)
 
-  const request = (payload: P = {} as P) => {
+  const {
+    url,
+    baseURL = process.env.BASE_URL,
+    ...others
+  } = config
+
+  const axios = Axios.create({
+    baseURL,
+    ...others,
+  })
+
+  const request = (payload: Omit<P, 'url'> = {} as Omit<P, 'url'>) => {
     const {pathParams, data, params, headers} = payload
-    const url = getPath<P['pathParams']>(path, pathParams)
+    const _url = getPath<P['pathParams']>(url, pathParams)
     axios({
-      url,
+      url: _url,
       data,
       params,
       headers,

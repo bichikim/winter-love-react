@@ -7,6 +7,7 @@ const styles = require('@neutrinojs/style-loader')
 const alias = require('./neutrino/middleware/alias')
 const stylus = require('./neutrino/middleware/stylus')
 const pug = require('./neutrino/middleware/pug')
+const env = require('./neutrino/middleware/env')
 
 module.exports = {
   options: {
@@ -14,6 +15,7 @@ module.exports = {
     source: 'src-client',
   },
   use: [
+    env(),
     eslint({
       useEslintrc: true,
     }),
