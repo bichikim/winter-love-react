@@ -1,14 +1,4 @@
-// import {configure} from '@storybook/react'
-//
-// const req = require.context('../stories', true, /\.stories\.js$/)
-//
-// function loadStories() {
-//   req.keys().forEach(filename => req(filename))
-// }
-//
-// configure(loadStories, module)
 const webpackMarge = require('webpack-merge')
-
 const findRuleIndex = (rules, ext) => {
   return rules.findIndex((value) => {
     const {test} = value
@@ -25,6 +15,11 @@ const findRuleIndex = (rules, ext) => {
 }
 
 module.exports = {
+  addons: [
+    '@storybook/addon-actions/register',
+    '@storybook/addon-links/register',
+    '@storybook/addon-knobs/register'
+  ],
   stories: ['../stories/**/*.stories.[tj]sx'],
   webpackFinal: (config) => {
     const neutrinoWebpack = require('../webpack.config.js')

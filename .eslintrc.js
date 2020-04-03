@@ -262,5 +262,9 @@ module.exports = {
       ],
       accessorPairPositioning: 'getThenSet',
     }],
+
+    'react-pug/prop-types': 'off',
+    'react-pug/empty-lines': 'off',
+    'react-pug/indent': 'off'
   },
 }
