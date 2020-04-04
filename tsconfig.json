@@ -46,9 +46,6 @@
     /**********************************
      * Additional Checks              *
      **********************************/
-    "plugins": [
-      { "name": "typescript-tslint-plugin" }
-    ],
     /* Report errors on unused locals. */
     "noUnusedLocals": false,
     /* Report errors on unused parameters. */
@@ -57,13 +54,22 @@
     "noImplicitReturns": false,
     /* Report errors for fallthrough cases in switch statement. */
     "noFallthroughCasesInSwitch": true,
+    /**
+     * Suppress --noImplicitAny errors for indexing objects lacking index signatures.
+     * @see https://github.com/Microsoft/TypeScript/issues/1232#issuecomment-64510362
+     */
     "suppressImplicitAnyIndexErrors": true,
 
     /******************************
      * Module Resolution Options  *
      ******************************/
     "moduleResolution": "node",
+    /* Base directory to resolve non-relative module names. */
     "baseUrl": ".",
+    /**
+     * List of path mapping entries for module names to locations relative to the baseUrl.
+     * But webpack will map the paths not the typescript.
+     */
     "paths": {
       "src/*": ["src-client/*"],
       "components/*": ["src-client/components/*"],
@@ -73,15 +79,23 @@
     "allowSyntheticDefaultImports": true,
     /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
     "esModuleInterop": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "types"
-    ],
-    // "types": [],
+    /* Disallow inconsistently-cased references to the same file. */
     "forceConsistentCasingInFileNames": true,
     /* Don't check libs typings */
     "skipLibCheck": true,
     "noEmitHelpers": false,
+
+    /**************************
+     * Type Declare Options  *
+     **************************/
+    /**
+     * List of folders to include type definitions from.
+     * @see https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types
+     */
+    "typeRoots": [
+      "node_modules/@types",
+      "types"
+    ],
 
     /**************************
      * Experimental Options   *
@@ -105,11 +119,12 @@
 
 
     /**********************
-     * ?
+     * Building Options
     ************************/
     /* it will use that information to detect the least costly way to type-check and emit changes to your project. */
-    "incremental": false
-    // build environment
+    "incremental": false,
+    /* Do not emit output */
+    "noEmit": true
   },
   "include": [
     "src-client"
