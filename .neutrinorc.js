@@ -28,7 +28,7 @@ module.exports = {
     typescript(),
     pug(),
     forkTsChecker({
-      enable: process.env.NODE_ENV === 'development',
+      enable: process.env.NODE_ENV !== 'test',
     }),
     karma({
       frameworks: ['mocha', 'chai'],

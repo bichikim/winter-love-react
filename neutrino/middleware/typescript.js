@@ -2,6 +2,10 @@ const babelMerge = require('babel-merge')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const {margeArray} = require('../utils')
 
+/**
+ * able to use typescript
+ * @returns {function(...[*]=)}
+ */
 module.exports.typescript = (/* options */) => (neutrino) => {
   neutrino.config.resolve.extensions
     .add('.tsx')
@@ -31,6 +35,12 @@ module.exports.typescript = (/* options */) => (neutrino) => {
     })
 }
 
+/**
+ * Type checking
+ * The Babel won't type check
+ * @param _options
+ * @returns {function(...[*]=)}
+ */
 module.exports.forkTsChecker = (_options) => (neutrino) => {
   const {enable = false, options = {}} = _options
   if(!enable) {

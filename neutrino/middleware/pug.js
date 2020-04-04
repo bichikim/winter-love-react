@@ -1,5 +1,9 @@
 const babelMerge = require('babel-merge')
 
+/**
+ * Add pug plugin to Babel
+ * @returns {function(...[*]=)}
+ */
 module.exports = () => (neutrino) => {
   neutrino.config.module
     .rule('compile')

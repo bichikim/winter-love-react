@@ -1,5 +1,9 @@
 const Dotenv =require('dotenv-webpack')
 
+/**
+ * add dotenv webpack plugin
+ * @returns {function(...[*]=)}
+ */
 module.exports = () => (neutrino) => {
   neutrino.config.plugin('dotenv').use(Dotenv, [{
     // loads the .env file by distinguishing between production mode and development mode.
