@@ -122,3 +122,6 @@ build
 
 # coverage
 .coverage/
+
+# cypress
+cypress/videos/

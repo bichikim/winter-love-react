@@ -8,6 +8,8 @@
     "build": "webpack --mode production",
     "test": "karma start --single-run",
     "lint": "eslint --cache --format codeframe --ext mjs,jsx,js,ts,tsx \"src-client\" test",
+    "e2e": "cypress run",
+    "e2e:serve": "cypress open",
     "storybook": "start-storybook",
     "neutrino:inspect": "neutrino --inspect --mode production"
   },
