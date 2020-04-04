@@ -25,3 +25,6 @@
 - [ ] pwa
 - [ ] ci/cd
 - [x] axios hook
+- [ ] icon set
+- [ ] add tailwind css
+- [ ] postcss
