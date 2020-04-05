@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ],
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
@@ -11,7 +14,8 @@
     "e2e": "cypress run",
     "e2e:serve": "cypress open",
     "storybook": "start-storybook",
-    "neutrino:inspect": "neutrino --inspect --mode production"
+    "neutrino:inspect": "neutrino --inspect --mode production",
+    "neutrino:inspect:test": "neutrino --inspect --mode test"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -27,6 +31,8 @@
     "@storybook/addons": "^5.0.10",
     "@storybook/react": "^5.3.18",
     "@types/chai": "^4.1.7",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/mocha": "^7.0.1",
     "@types/pug": "^2.0.4",
     "@types/react": "16.8.20",
@@ -35,6 +41,8 @@
     "@typescript-eslint/eslint-plugin": "^2.3.2",
     "@typescript-eslint/parser": "^2.3.2",
     "autoprefixer": "^9.7.5",
+    "axios-mock-adapter": "^1.18.1",
+    "babel-loader": "^8.1.0",
     "babel-merge": "^3.0.0",
     "babel-plugin-transform-jsx-classname-components": "^0.0.3",
     "babel-plugin-transform-react-pug": "^7.0.1",
@@ -42,12 +50,15 @@
     "craco-plugin-scoped-css": "^1.0.0",
     "cypress": "^4.3.0",
     "dotenv-webpack": "^1.7.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6",
     "eslint-loader": "^3",
     "eslint-plugin-import": "^2",
     "eslint-plugin-react": "^7",
     "eslint-plugin-react-pug": "^0.8.4",
     "eslint-plugin-sort-class-members": "^1",
+    "flush-promises": "^1.0.2",
     "fork-ts-checker-webpack-plugin": "^4",
     "karma": "^4",
     "karma-chai": "^0.1.0",
@@ -65,7 +76,6 @@
     "stylus-loader": "^3.0.2",
     "tailwindcss": "^1.2.0",
     "typescript": "^3.8.3",
-    "webfonts-loader": "^5.1.1",
     "webpack": "^4",
     "webpack-cli": "^3",
     "webpack-dev-server": "^3",
@@ -74,11 +84,13 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "core-js": "^3.6.4",
     "immer": "^6.0.3",
     "lodash": "^4.17.15",
     "prop-types": "^15",
     "react": "^16",
     "react-dom": "^16",
-    "react-router-dom": "^5.1.2"
+    "react-router-dom": "^5.1.2",
+    "regenerator-runtime": "^0.13.5"
   }
 }

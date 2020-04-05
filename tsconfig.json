@@ -127,7 +127,8 @@
     "noEmit": true
   },
   "include": [
-    "src-client"
+    "src-client",
+    "test"
   ],
   "exclude": [
   ]

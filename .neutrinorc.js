@@ -8,7 +8,14 @@ const alias = require('./neutrino/middleware/alias')
 const stylus = require('./neutrino/middleware/stylus')
 const pug = require('./neutrino/middleware/pug')
 const env = require('./neutrino/middleware/env')
+const pkg = require('./package.json')
+const hotfix = require('./neutrino/middleware/hotfix')
 
+
+/**
+ * @example
+ * @type {{use: ((function(...[*]=))|(function(...[*]=)))[], options: {roo: string, source: string}}}
+ */
 module.exports = {
   options: {
     roo: __dirname,
@@ -19,7 +26,12 @@ module.exports = {
     eslint({
       useEslintrc: true,
     }),
-    reactComponents(),
+    reactComponents({
+      externals: process.env.NODE_ENV !== 'test',
+      targets: {
+        browsers: pkg.browserslist,
+      }
+    }),
 
     // alias
     alias(),
@@ -34,20 +46,31 @@ module.exports = {
       frameworks: ['mocha', 'chai'],
       files: [
         {
-          pattern: 'test/**/*.spec.ts',
+          pattern: 'test/karma.polyfill.ts',
+          watched: false,
+          included: true,
+          served: true,
+        },
+        {
+          pattern: 'test/**/*.spec.tsx',
           watched: false,
           included: true,
           served: true,
         }
       ],
       preprocessors: {
-        'test/**/*.spec.ts': ['webpack'],
-        'src/**/*.(ts|tsx|js|jsx|mjs)': ['webpack'],
+        'test/**/*.ts': ['webpack'],
+        'test/**/*.tsx': ['webpack'],
+        'src/**/*.ts': ['webpack'],
+        'src/**/*.js': ['webpack'],
+        'src/**/*.tsx': ['webpack'],
+        'src/**/*.jsx': ['webpack'],
       }
       ,
       plugins: [
         require.resolve('karma-chai'),
       ],
     }),
+    hotfix(),
   ],
 }
