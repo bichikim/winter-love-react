@@ -28,6 +28,7 @@
 - [ ] icon set
 - [ ] add tailwind css
 - [ ] postcss
+- [x] cycle.js
 
 ## issue
 
