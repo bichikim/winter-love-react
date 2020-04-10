@@ -83,6 +83,9 @@
     "webpack-pwa-manifest": "^4.2.0"
   },
   "dependencies": {
+    "@cycle/react": "^2.7.0",
+    "@cycle/react-dom": "^2.4.0",
+    "@cycle/run": "^5.4.0",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "immer": "^6.0.3",
@@ -91,6 +94,7 @@
     "react": "^16",
     "react-dom": "^16",
     "react-router-dom": "^5.1.2",
-    "regenerator-runtime": "^0.13.5"
+    "regenerator-runtime": "^0.13.5",
+    "xstream": "^11.11.0"
   }
 }

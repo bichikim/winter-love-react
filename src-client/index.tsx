@@ -12,8 +12,8 @@ render(
     Router
       Suspense(fallback=Fallback)
         Switch
-          Route(path="/" component=Index)
           Route(path="/foo" component=Foo)
+          Route(path="/" component=Index)
   `
   ,
   document.getElementById('root')

@@ -1,12 +1,34 @@
-import React from 'react'
-import Example from 'components/Example'
+import xs from 'xstream'
+import {makeComponent} from '@cycle/react'
+import {div, span, button} from '@cycle/react-dom'
 
-export const index: React.FC = () => {
-  return pug`
-    div index page
-      Example
-      div BASE_URL #{process.env.BASE_URL}
-  `
+function index(source) {
+  const buttonRef = Symbol('button')
+
+  const button$ = source.react.select(buttonRef).events('click')
+
+  const initialState = {count: 0}
+
+
+  const state$ = xs.merge(
+    button$.mapTo((prevState) => ({
+      ...prevState,
+      count: prevState.count + 1,
+    }))
+  )
+  .fold((state, fn: any) => fn(state), initialState)
+
+  const react = state$.map((state) => (
+    div([
+      span('.text', ['hello index', state.count]),
+      button(buttonRef, 'click'),
+    ])
+  ))
+
+  return {
+    react,
+  }
 }
 
-export default index
+export default makeComponent(index)
+
