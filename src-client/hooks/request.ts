@@ -36,7 +36,7 @@ export interface Config<P = any> extends Omit<DefaultConfig, 'url'> {
 }
 
 export const getPath = <P = any>(
-  path: Path<P> = '',
+  path?: Path<P>,
   payload?: P,
 ): string => {
   if(typeof path === 'function') {
@@ -46,7 +46,7 @@ export const getPath = <P = any>(
   } else if(typeof payload === 'string') {
     return payload
   }
-  return path
+  return path ?? ''
 }
 
 export const useRequest = <R extends Record<string | symbol, any> = Record<string | symbol, any>,
