@@ -1,17 +1,10 @@
-import {Properties} from 'csstype'
-
 export type EventHandler<E extends Event> = (event: E) => any
 
-
-export interface StyleProperties extends Properties<string | number>{
-
-}
-
-export type Style = string | string[] | StyleProperties
+export type Style = string | string[] | CSSStyleDeclaration
 
 export type AttributeBoolean = boolean | 'true' | 'false'
 
-export interface HTMLAttribute {
+export interface HTMLAttributes {
   // accesskey
   accessKey?: string
 
@@ -35,11 +28,40 @@ export interface HTMLAttribute {
   translate?: 'yes' | 'no'
 }
 
-export interface HTMLEvent {
-  onClick?: EventHandler<MouseEvent>
+export interface EventHandlers {
+  onCancel?: EventHandler<Event>
+  onCanPlay?: EventHandler<Event>
 }
 
-export interface DivAttribute extends HTMLAttribute {
+export interface MouseEventHandlers {
+  onClick?: EventHandler<MouseEvent>
+  onDBLClick?: EventHandler<MouseEvent>
+  onAuxClick?: EventHandler<MouseEvent>
+  onContextMenu?: EventHandler<MouseEvent>
+}
+
+export interface FocusEventHandlers {
+  onBlur?: EventHandler<FocusEvent>
+}
+
+export interface ClipboardEventHandlers {
+  onCopy?: EventHandler<ClipboardEvent>
+  onCut?: EventHandler<ClipboardEvent>
+  onPaste?: EventHandler<ClipboardEvent>
+}
+
+export interface UIEventHandlers {
+  onAbort?: EventHandler<UIEvent>
+}
+
+export interface AnimationEventHandlers {
+  onAnimationCancel?: EventHandler<AnimationEvent>
+  onAnimationEnd?: EventHandler<AnimationEvent>
+  onAnimationIteration?: EventHandler<AnimationEvent>
+  onAnimationStart?: EventHandler<AnimationEvent>
+}
+
+export interface DivAttributes extends HTMLAttributes {
 
 }
 
@@ -67,23 +89,23 @@ export interface AltAttribute {
   alt?: any
 }
 
-export interface AreaAttribute extends
+export interface AreaAttributes extends
   AltAttribute,
-  HTMLAttribute {
+  HTMLAttributes {
 }
 
 export interface IframeAttribute {
-  allow: any
+  allow?: any
 }
 
 export interface ScriptAttribute {
   async?: any
 }
 
-export interface FormAttribute extends
+export interface FormAttributes extends
   AcceptAttribute,
   AutoCompleteAttribute,
-  HTMLAttribute {
+  HTMLAttributes {
   /**
    * Specifies the character encodings that are to be used for the form submission
    * @html accept-charset
@@ -96,26 +118,41 @@ export interface FormAttribute extends
   action?: any
 }
 
-export interface TextareaAttribute extends
-  AutoCompleteAttribute,
-  HTMLAttribute {
-
+export interface AutofocusAttribute {
+  autofocus?: any
 }
 
-export interface InputAttribute extends
+export interface TextareaAttributes extends
+  AutofocusAttribute,
+  HTMLAttributes {
+}
+
+export interface InputAttributes extends
+  AutofocusAttribute,
   AcceptAttribute,
   AutoCompleteAttribute,
-  HTMLAttribute {
-
+  AltAttribute,
+  HTMLAttributes {
 }
 
-export interface SpanAttribute extends
-  HTMLAttribute {
+export interface ImgAttributes extends
+  AltAttribute,
+  HTMLAttributes {
 }
 
-export interface ButtonAttribute extends
-  HTMLAttribute {
+export interface SelectAttributes extends
+  AutofocusAttribute,
+  HTMLAttributes {
+}
 
+export interface SpanAttributes extends
+  MouseEventHandlers,
+  HTMLAttributes {
+}
+
+export interface ButtonAttributes extends
+  AutofocusAttribute,
+  HTMLAttributes {
 }
 
 export type DomNode = boolean | null | undefined | string | number | any

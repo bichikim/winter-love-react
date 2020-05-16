@@ -1,6 +1,6 @@
 import {FunctionComponent, ReactElement, useState} from 'react'
-import {div} from 'src/dom/react-dom'
-
+import {button} from 'src/dom/react-dom'
+import {div} from 'src/dom/query-react-dom'
 
 export interface RenderData {
   count: number
@@ -19,11 +19,13 @@ export const indexSetUp = () => {
 }
 
 export const indexRender = (data: RenderData): ReactElement => {
-  const {count} = data
   return (
-    div({style: {color: 'red'}})(
-      div('index count: '),
-      count,
+    div.$foo.bar.john({style: {color: 'red'}})(
+      div['#foo-sec']('index count: '),
+      div(data.count),
+      button({onClick: () => {data.count = data.count + 1}})(
+        'click',
+      )
     )
   )
 }

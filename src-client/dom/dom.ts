@@ -1,10 +1,10 @@
 import {
   CreateElementLike,
-  DivAttribute,
+  DivAttributes,
   DomNode,
-  HTMLAttribute,
-  SpanAttribute,
-  ButtonAttribute,
+  HTMLAttributes,
+  SpanAttributes,
+  ButtonAttributes,
 } from './types'
 
 export const optionsSymbol = Symbol('options')
@@ -12,7 +12,40 @@ export const createElementSymbol = Symbol('createElement')
 export const createElementAdapterSymbol = Symbol('createElementAdapter')
 export const elementSymbol = Symbol('element')
 
-export function dom<O extends HTMLAttribute>(type: any) {
+export const isElement = (value: any) => {
+  const typeOfValue = typeof value
+  return value && value[elementSymbol]
+    || value === null
+    || typeOfValue === 'string'
+    || typeOfValue === 'number'
+}
+
+export const beArrayClassNames = (classNames?: any) => {
+
+  if(Array.isArray(classNames)) {
+    return classNames
+  }
+
+  const typeofClassNames = typeof classNames
+
+  if(typeofClassNames === 'undefined') {
+    return []
+  }
+
+  if(typeofClassNames === 'object') {
+    return Object.keys(classNames).filter((key) => {
+      return classNames[key]
+    })
+  }
+
+  if(typeofClassNames === 'string') {
+    return classNames.split(' ')
+  }
+
+  throw new Error('is it classNames?')
+}
+
+export function dom<O extends HTMLAttributes>(type: any) {
   function createElementAdapterPart(createElement: CreateElementLike<any>) {
     function optionsPart(options?: O | DomNode, ...mayChildren: DomNode[]) {
       function createElementPart(...children: DomNode[]) {
@@ -22,12 +55,8 @@ export function dom<O extends HTMLAttribute>(type: any) {
           [elementSymbol]: true,
         })
       }
-      const optionsTypeOf = typeof options
       if(
-        options && options[elementSymbol]
-        || options === null
-        || optionsTypeOf === 'string'
-        || optionsTypeOf === 'number'
+        isElement(options)
       ) {
         return createElement(type, {}, options, ...mayChildren)
       }
@@ -47,10 +76,10 @@ export function dom<O extends HTMLAttribute>(type: any) {
   return createElementAdapterPart
 }
 
-export const div = dom<DivAttribute>('div')
+export const div = dom<DivAttributes>('div')
 
-export const span = dom<SpanAttribute>('span')
+export const span = dom<SpanAttributes>('span')
 
-export const button = dom<ButtonAttribute>('button')
+export const button = dom<ButtonAttributes>('button')
 
 export default dom

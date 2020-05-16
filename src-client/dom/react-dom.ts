@@ -10,17 +10,21 @@ import {
   dom as _dom,
   elementSymbol,
 } from './dom'
-import {CreateElementLike, HTMLAttribute} from './types'
 
-export type DomAttribute = HTMLAttribute & Record<string, any>
+import {CreateElementLike, HTMLAttributes} from './types'
+
+export type DomAttribute = HTMLAttributes & Record<string, any>
 
 const createReactProps = (options: Record<any, any>): Record<any, any> => {
   if(typeof options === 'object' && !Array.isArray(options)) {
     const {class: className, ...others} = options
+
     const props = {
       ...others,
     }
-    if(className) {
+
+    // filter empty array className
+    if(className && (Array.isArray(className) && className.length > 0)) {
       props.className = className
     }
 
