@@ -1,25 +1,27 @@
-import xs from 'xstream'
-import {makeComponent} from '@cycle/react'
-import {div, span} from '@cycle/react-dom'
+import {FC, useState} from 'react'
+import {div} from 'src/dom/react-dom'
 
-function foo() {
-  const initialState = {}
 
-  const state = xs.merge(
-
-  )
-  .fold((state, fn) => fn(state), initialState)
-
-  const react = state.map(() => (
-    div([
-      span('.text', 'hello foo'),
-    ])
-  ))
-
-  return {
-    react,
-  }
+const fooSetUp = () => {
+  const [count, setCount] = useState(0)
+  return Object.freeze({
+    get count(): number {
+      return count
+    },
+    set count(value: number) {
+      setCount(value)
+    },
+  })
 }
 
-export default makeComponent(foo)
+const foo: FC = () => {
+  const {count} = fooSetUp()
+  return (
+    div({style: {color: 'red'}})(
+      div()('foo count: '),
+      count,
+    )
+  )
+}
 
+export default foo

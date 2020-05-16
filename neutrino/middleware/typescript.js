@@ -28,7 +28,7 @@ module.exports.typescript = (/* options */) => (neutrino) => {
               // (introduced in TypeScript 3.8). This should only be used
               // if you are using TypeScript >= 3.8.
               // fix remove import React
-              onlyRemoveTypeImports: true,
+              // onlyRemoveTypeImports: true,
             }]],
         },
       )

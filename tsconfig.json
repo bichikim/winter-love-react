@@ -63,7 +63,7 @@
     /******************************
      * Module Resolution Options  *
      ******************************/
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     /* Base directory to resolve non-relative module names. */
     "baseUrl": ".",
     /**
@@ -127,7 +127,7 @@
     "noEmit": true
   },
   "include": [
-    "src-client",
+    "src-client/**/*",
     "test"
   ],
   "exclude": [
