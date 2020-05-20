@@ -71,9 +71,9 @@
      * But webpack will map the paths not the typescript.
      */
     "paths": {
-      "src/*": ["src-client/*"],
-      "components/*": ["src-client/components/*"],
-      "pages/*": ["src-client/pages/*"]
+      "src/*": ["src/*"],
+      "components/*": ["src/components/*"],
+      "pages/*": ["src/pages/*"]
     },
     /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
     "allowSyntheticDefaultImports": true,
@@ -127,7 +127,7 @@
     "noEmit": true
   },
   "include": [
-    "src-client/**/*",
+    "src/**/*",
     "test"
   ],
   "exclude": [

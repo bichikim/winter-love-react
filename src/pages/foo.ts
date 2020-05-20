@@ -1,5 +1,5 @@
 import {FC, useState} from 'react'
-import {div} from 'src/dom/react-dom'
+import {div} from 'src/lib/dom/react-dom'
 
 
 const fooSetUp = () => {

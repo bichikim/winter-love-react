@@ -8,8 +8,11 @@ import {
 } from './types'
 
 export const optionsSymbol = Symbol('options')
+
 export const createElementSymbol = Symbol('createElement')
+
 export const createElementAdapterSymbol = Symbol('createElementAdapter')
+
 export const elementSymbol = Symbol('element')
 
 export const isElement = (value: any) => {

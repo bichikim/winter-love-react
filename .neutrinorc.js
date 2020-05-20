@@ -19,7 +19,7 @@ const hotfix = require('./neutrino/middleware/hotfix')
 module.exports = {
   options: {
     roo: __dirname,
-    source: 'src-client',
+    source: 'src',
   },
   use: [
     env(),

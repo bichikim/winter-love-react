@@ -6,7 +6,7 @@ const {resolve} = require('path')
  */
 module.exports = () => (neutrino) => {
   neutrino.config.resolve.alias
-    .set('src', resolve(neutrino.options.root, 'src-client'))
-    .set('pages', resolve(neutrino.options.root, 'src-client/pages'))
-    .set('components', resolve(neutrino.options.root, 'src-client/components'))
+    .set('src', resolve(neutrino.options.root, 'src'))
+    .set('pages', resolve(neutrino.options.root, 'src/pages'))
+    .set('components', resolve(neutrino.options.root, 'src/components'))
 }
