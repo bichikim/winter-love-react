@@ -91,6 +91,7 @@
     "prop-types": "^15",
     "react": "^16",
     "react-dom": "^16",
+    "react-hooks-global-state": "^1.0.0",
     "react-router-dom": "^5.1.2",
     "regenerator-runtime": "^0.13.5",
     "xstream": "^11.11.0"
