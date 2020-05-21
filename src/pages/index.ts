@@ -56,6 +56,6 @@ export const indexRender = <P>(data: RenderData): FunctionComponentElement<P> =>
   )
 }
 
-const index: FunctionComponent = componentMixer(indexSetUp, indexRender)
+const index = componentMixer('Index', indexSetUp, indexRender)
 
 export default index

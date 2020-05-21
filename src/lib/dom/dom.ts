@@ -65,7 +65,7 @@ export function dom<O extends HTMLAttributes>(type: any) {
       }
 
       createElementPart[createElementSymbol] = true
-
+      
       return createElementPart
     }
 
@@ -75,6 +75,8 @@ export function dom<O extends HTMLAttributes>(type: any) {
   }
 
   createElementAdapterPart[createElementAdapterSymbol] = true
+
+
 
   return createElementAdapterPart
 }
