@@ -4,11 +4,9 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import 'src/css/global.styl'
 import {dom, div} from 'src/lib/dom/react-dom'
 
-
 const Index = lazy(() => import(/* webpackMode: "eager" */ 'pages/index'))
 const Foo = lazy(() => import('pages/foo'))
 const Fallback = div()('loading...')
-
 
 const router = dom(Router)
 const switcher = dom(Switch)
