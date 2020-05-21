@@ -9,12 +9,18 @@ const Index = lazy(() => import(/* webpackMode: "eager" */ 'pages/index'))
 const Foo = lazy(() => import('pages/foo'))
 const Fallback = div()('loading...')
 
+
+const router = dom(Router)
+const switcher = dom(Switch)
+const route = dom(Route)
+const suspense = dom(Suspense)
+
 render(
-  dom(Router)(
-    dom(Suspense)({fallback: Fallback})(
-      dom(Switch)(
-        dom(Route)({path: 'foo', component: Foo})(),
-        dom(Route)({path: '/', component: Index})(),
+  router(
+    suspense({fallback: Fallback})(
+      switcher(
+        route({path: 'foo', component: Foo})(),
+        route({path: '/', component: Index})(),
       )
     )
   )

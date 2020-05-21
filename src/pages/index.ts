@@ -20,7 +20,10 @@ export const indexSetUp = () => {
   })
 }
 
+const example = dom(Example)
+
 export const indexRender = <P>(data: RenderData): FunctionComponentElement<P> => {
+
   return (
     div.$foo.bar.john({style: {color: 'red'}})(
       div['#foo-sec']('index count: '),
@@ -29,7 +32,7 @@ export const indexRender = <P>(data: RenderData): FunctionComponentElement<P> =>
         'click',
       ),
       div('----------------------'),
-      dom(Example)({count: data.count})()
+      example({count: data.count})()
     )
   )
 }
